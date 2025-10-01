@@ -14,7 +14,7 @@ spec:
         prometheus.io/scrape: 'true'
         prometheus.io/port: '8080'
         prometheus.io/path: '/actuator/prometheus'
-        update: 4530cd09
+        update: 84bef784
       labels:
         app: sk007-mysecond-api-server
     spec:

@@ -3,8 +3,8 @@ pipeline {
 
   environment {
     // === 사용자 수정 영역 ===
-    GIT_URL                = 'https://github.com/himang10/mysecond-api-server.git'
-    GIT_BRANCH             = 'master'            // 또는 main
+    GIT_URL                = 'https://github.com/parkbjgit/mysecond-api-server.git'
+    GIT_BRANCH             = 'main'            // 또는 main
     GIT_ID                 = 'skala-github-id'   // GitHub PAT credential ID
     IMAGE_NAME             = 'sk007-mysecond-api-server'    
     // =======================
@@ -32,7 +32,13 @@ pipeline {
     stage('Build with Maven') {
       steps {
         echo 'Build with Maven'
-        sh 'mvn clean package -DskipTests'
+        script {
+          // Java 버전 확인
+          sh 'java -version'
+          
+          // Maven 빌드 (Java 17로 강제 설정)
+          sh 'mvn clean package -DskipTests -Dmaven.compiler.source=17 -Dmaven.compiler.target=17'
+        }
       }
     }
 

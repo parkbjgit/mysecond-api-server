@@ -13,7 +13,7 @@ spec:
       paths:
       - backend:
           service:
-            name: sk007-myfirst-api-server
+            name: sk007-mysecond-api-server
             port:
               number: 8080
         path: /

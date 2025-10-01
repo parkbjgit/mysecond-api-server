@@ -13,7 +13,7 @@ spec:
       paths:
       - backend:
           service:
-            name: ${USER_NAME}-myfirst-api-server
+            name: ${USER_NAME}-mysecond-api-server
             port:
               number: 8080
         path: /

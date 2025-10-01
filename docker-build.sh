@@ -1,6 +1,6 @@
 #!/bin/bash
 NAME=sk007
-IMAGE_NAME="myfirst-api-server"
+IMAGE_NAME="mysecond-api-server"
 VERSION="1.0.0"
 
 CPU_PLATFORM=amd64
