@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sk007-mysecond-api-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sk007-mysecond-api-server
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '8080'
+        prometheus.io/path: '/actuator/prometheus'
+        update: 4530cd09
+      labels:
+        app: sk007-mysecond-api-server
+    spec:
+      serviceAccountName: default
+      containers:
+      - name: mysecond-api-server
+        image: amdp-registry.skala-ai.com/skala25a/sk007-mysecond-api-server:1.0.0
+        imagePullPolicy: Always
+        env:
+        - name: USER_NAME
+          value: sk007
+        - name: NAMESPACE
+          value: skala-practice
+        - name: SPRING_PROFILES_ACTIVE  
+          value: "prod"  
